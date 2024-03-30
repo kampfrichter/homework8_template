@@ -32,6 +32,29 @@ def search_user(filename: str, data: str) -> str:
     return "\n".join(result)
 
 
+def transfer_data():
+    number_file = int(input("Выберите исходный фаил, нажмите 1 или 2\n"))
+    if 0 < number_file < 3:
+        source = f'Text_{number_file}.txt'
+        print(read_all(source))
+        if number_file == 1:
+            dest = 'Text_2.txt'
+        else:
+            dest = 'Text_1.txt'
+
+        number_row = int(input(f"введите номер копируемой строки \n"))
+
+        with open(source, 'r') as input_f, open(dest, 'a') as output_f:
+            lines = input_f.readlines()
+            if number_row > 0 and number_row <= len(lines):
+                output_f.write("\n" + lines[number_row - 1])
+                print("Строка успешно скопирована.")
+            else:
+                print("Некорректный номер строки.")
+    else:
+        print("в списке всего 2 файла, выберете 1 или 2")
+
+
 INFO_STRING = """
 Выберите ркжим работы:
 1 - вывести все данные
@@ -59,5 +82,5 @@ while True:
         data = input("Введите значение: ")
         print(search_user(file, data))
     elif mode == 4:
-        # Тут нужно вызвать функцию с аргументами
-        pass
+        transfer_data()
+
