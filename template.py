@@ -32,17 +32,6 @@ def search_user(filename: str, data: str) -> str:
     return "\n".join(result)
 
 
-def transfer_data(source: str, dest: str, num_row: int):
-    """
-    Функция для переноса указанной строки из одного файла
-    в другой
-    source: str - имя исходного файла
-    dest: str - имя файла куда переносим
-    num_row: int - номер переносимой строки
-    """
-    pass
-
-
 INFO_STRING = """
 Выберите ркжим работы:
 1 - вывести все данные
@@ -51,7 +40,7 @@ INFO_STRING = """
 4 - перенос записи в другой файл
 """
 
-file = "Text.txt"
+file = "Text_1.txt"
 
 if file not in os.listdir():
     print("указанное имя файла отсутсвует")
